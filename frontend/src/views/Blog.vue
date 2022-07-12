@@ -4,7 +4,7 @@ import axios from "axios";
 import { ArrowLeftIcon } from "@heroicons/vue/outline";
 import { useAuthStore } from "../stores/authStore";
 import { ref, watchEffect } from "vue";
-const blogUrl = 'http://localhost:5000/api/blog'
+const blogUrl = 'https://venom-blog-app.herokuapp.com/api/blog'
 const authStore = useAuthStore();
 const route = useRoute();
 const token = ref("");

@@ -8,7 +8,7 @@ import { useRoute, useRouter } from 'vue-router';
 const router = useRouter()
 const route = useRoute();
 const authStore = useAuthStore();
-const blogUrl = "http://localhost:5000/api/blog";
+const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";
 const token = ref("");
 const blogData = ref([]);
 const blogForm = reactive({

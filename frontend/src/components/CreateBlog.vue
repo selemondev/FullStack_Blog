@@ -10,7 +10,7 @@ import { useAuthStore } from '../stores/authStore';
 import { useRouter } from 'vue-router';
 const authStore = useAuthStore();
 const router = useRouter();
-const blogUrl = "http://localhost:5000/api/blog";
+const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";
 const token = ref("");
 const loading = ref(false);
 watchEffect(() => {
