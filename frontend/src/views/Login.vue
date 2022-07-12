@@ -6,6 +6,7 @@ import { useRouter } from "vue-router";
 import { useAuthStore } from "../stores/authStore";
 const authStore = useAuthStore();
 const router = useRouter();
+const error = ref("")
 const formData = reactive({
     username: "",
     email: "",
@@ -15,7 +16,6 @@ const token = ref("");
 const loading = ref(false);
 watchEffect(() => {
     token.value = authStore.user;
-    loading.value = authStore.loading;
     if(token.value) {
         router.push("/home")
     }
@@ -30,9 +30,18 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, formData);
 const handleSubmit = async () => {
     const result = await v$.value.$validate();
+    loading.value = true;
     if(result) {
-        authStore.login(formData.email, formData.password);
-    };
+        try {
+            authStore.login(formData.email, formData.password);
+        } catch(err) {
+            error.value = err.message;
+            setTimeout(() => {
+                error.value = ""
+            }, 2000);
+        }
+    }; 
+    loading.value = false;
     setTimeout(() => {
         formData.username = "";
         formData.email = "";
@@ -41,7 +50,7 @@ const handleSubmit = async () => {
 }
 </script>
 <template>
-<section class="grid-center">
+<section class="grid-center pt-14">
     <div class="max-w-sm w-72 mt-4 mb-4 md:w-96 md:mt-6 md:mb-6">
         <form class="w-full px-6 py-4 bg-black border border-gray-800 rounded-sm shadow-sm" @submit.prevent="handleSubmit">
             <div class="grid-center pb-4">

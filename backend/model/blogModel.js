@@ -25,6 +25,8 @@ const blogSchema = mongoose.Schema({
         required: [ true, "Please add a username"]
     }
 
+}, {
+    timestamps: true,
 });
 
 module.exports = mongoose.model("Blog", blogSchema)

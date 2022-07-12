@@ -1,8 +1,8 @@
 <script setup>
-import ProfileEdit from '../components/ProfileEdit.vue';
+import BlogEdit from '../components/BlogEdit.vue';
 </script>
 <template>
 <main class="left-margin">
-    <ProfileEdit/>
+    <BlogEdit/>
 </main>
 </template>

@@ -53,6 +53,30 @@ const router = createRouter({
       meta: {
         auth: true
       }
+    },
+    {
+      path: "/blog/:id",
+      name: "blog",
+      component : () => import('../views/Blog.vue'),
+      meta: {
+        auth: true 
+      }
+    },
+    {
+      path: "/blogEdit/:id",
+      name: "blogEdit",
+      component : () => import('../views/BlogEdit.vue'),
+      meta: {
+        auth: true 
+      }
+    },
+    {
+      path: "/user/:id",
+      name: "user",
+      component : () => import('../views/User.vue'),
+      meta: {
+        auth: true
+      }
     }
   ]
 });

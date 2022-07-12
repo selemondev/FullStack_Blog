@@ -1,8 +1,9 @@
 <script setup>
+import MyBlogs from '../components/MyBlogs.vue';
 </script>
 
 <template>
   <main class="left-margin">
-    <p class="text-white">Hello there</p>
+    <MyBlogs/>
   </main>
 </template>

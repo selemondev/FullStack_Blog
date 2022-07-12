@@ -1,11 +1,8 @@
 const User = require("../model/userModel");
 const Blog = require("../model/blogModel");
 const asyncHandler = require("express-async-handler");
-const bcrypt = require("bcryptjs");
 const updateUser = asyncHandler( async ( req, res ) => {
     if( req.user.id === req.params.id ) {
-        const salt = await bcrypt.genSalt(10);
-        req.body.password = await bcrypt.hash(req.body.password, salt)
         try {
             const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
             res.status(200).json(updatedUser)

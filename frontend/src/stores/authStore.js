@@ -6,7 +6,7 @@ export const useAuthStore = defineStore({
   id: "auth",
   state:() => ({
     user: JSON.parse(localStorage.getItem("token")),
-    loading: false
+    loading: false,
   }),
 
   actions: {
@@ -19,10 +19,8 @@ export const useAuthStore = defineStore({
     },
 
     async login(email, password) {
-      this.loading = true;
       const user = await axios.post(loginUrl, { email, password});
       this.user = user;
-      this.loading = false;
       localStorage.setItem("token", JSON.stringify(user))
     },
 
