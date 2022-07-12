@@ -73,7 +73,7 @@ function truncate(value,n) {
                 </div>
 
                 <div class="flex-between">
-                <div class='flex items-center space-x-1 xl:space-x-3'>
+                <div class='flex items-center space-x-3'>
                       <p><FlagIcon class="w-5 h-5 text-gray-400"/></p>
                       <p class='text-gray-400 text-sm xl:text-lg'>{{ formateDate(blog.createdAt)}}</p>
                 </div>

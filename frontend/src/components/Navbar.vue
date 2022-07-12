@@ -29,7 +29,7 @@ export default {
 }
 </script>
 <script setup>
-import { CheckCircleIcon, LightningBoltIcon, UserIcon } from "@heroicons/vue/outline";
+import { CheckCircleIcon, LightningBoltIcon, UserIcon, HomeIcon } from "@heroicons/vue/outline";
 import Medium from "../assets/medium.png"
 import { useRouter } from "vue-router";
 import { useAuthStore } from "../stores/authStore";
@@ -44,9 +44,14 @@ watchEffect(() => {
 });
 const sidebarMenu = [
     {
+        label: "Home",
+        Icon: HomeIcon,
+        path: "/home"
+    },
+    {
         label : "My Blogs",
         Icon : CheckCircleIcon,
-        path: "/home"
+        path: "/blogs"
     },
     {
         label: "Create",
