@@ -94,7 +94,7 @@ const handleLogOut = async () => {
                     <img :src="Medium" alt="medium" class="w-10 h-10 bg-white rounded-full border border-black md:h-12 md:w-12">
                     <h1 class="font-bold text-white text-xl md:text-2xl">Medium</h1>
                 </div>
-                <div v-for="menu in sidebarMenu" :key="menu.label" class="flex items-center space-x-2">
+                <div v-for="menu in sidebarMenu" :key="menu.label" class="flex items-center space-x-2" v-if="token">
                 <component :is="menu.Icon" class="w-7 h-7 text-gray-400 group-hover:text-white"/>
                  <li class="mobileNav-tags"><router-link :to="menu.path">{{menu.label}}</router-link></li>
                  </div>
