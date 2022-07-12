@@ -1,1 +1,1 @@
-export const blogUrl = "http://localhost:5000/api/blog";
+export const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";

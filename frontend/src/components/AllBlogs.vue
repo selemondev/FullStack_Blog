@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import Note from "../assets/Note.svg";
 import Loader from "./Loader.vue";
 const authStore = useAuthStore();
-const blogUrl = "http://localhost:5000/api/blog";
+const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";
 const token = ref("");
 const blogs = ref([])
 const loading = ref(false);

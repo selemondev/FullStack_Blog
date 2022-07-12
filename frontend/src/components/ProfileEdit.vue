@@ -5,7 +5,7 @@ import { required, helpers, email } from "@vuelidate/validators";
 import axios from 'axios';
 import { useAuthStore } from '../stores/authStore';
 const authStore = useAuthStore();
-const authUrl = "http://localhost:5000/api/auth";
+const authUrl = "https://venom-blog-app.herokuapp.com/api/auth";
 const token = ref("");
 const blogData = ref([]);
 const blogForm = reactive({

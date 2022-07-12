@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-const registerUrl = "http://localhost:5000/api/auth/register";
-const loginUrl = "http://localhost:5000/api/auth/login"
+const registerUrl = "https://venom-blog-app.herokuapp.com/api/auth/register";
+const loginUrl = "https://venom-blog-app.herokuapp.com/api/auth/login"
 export const useAuthStore = defineStore({
   id: "auth",
   state:() => ({
