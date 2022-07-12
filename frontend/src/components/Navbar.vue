@@ -44,7 +44,7 @@ watchEffect(() => {
 });
 const sidebarMenu = [
     {
-        label : "My Tasks",
+        label : "My Blogs",
         Icon : CheckCircleIcon,
         path: "/home"
     },
@@ -67,7 +67,7 @@ const handleLogOut = async () => {
 </script>
 <template>
 <header>
-    <nav class="flex-between px-3 w-full h-14 border-b border-gray-800 md:px-4">
+    <nav class="flex-between px-3 w-full bg-black fixed top-0 h-14 border-b border-gray-800 md:px-4">
         <div class="flex-between space-x-2">
             <img :src="Medium" alt="medium" class="w-10 h-10 bg-white rounded-full border border-black md:h-12 md:w-12">
             <h1 class="font-bold text-white text-xl md:text-2xl">Medium</h1>

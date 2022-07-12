@@ -1,0 +1,1 @@
+export const blogUrl = "http://localhost:5000/api/blog";

@@ -1,8 +1,8 @@
 <script setup>
-import ProfileEdit from '../components/ProfileEdit.vue';
+import ProfileUpdate from "../components/ProfileUpdate.vue"
 </script>
 <template>
 <main class="left-margin">
-    <ProfileEdit/>
+    <ProfileUpdate/>
 </main>
 </template>
