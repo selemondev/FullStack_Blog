@@ -34,7 +34,6 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, blogForm);
 watchEffect( async () => {
     const response = await axios.get(`${authUrl}/credentials`, config);
-    console.log(response.data)
     blogData.value = response.data;
     blogForm.username = blogData.value.username;
     blogForm.email = blogData.value.email;
