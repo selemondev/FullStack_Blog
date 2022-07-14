@@ -32,9 +32,9 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, formData);
 const handleSubmit = async () => {
     const result = await v$.value.$validate();
-    if(result) {
+     if(result) {
         authStore.register(formData.username, formData.email, formData.password);
-    };
+    }
     setTimeout(() => {
         formData.username = "";
         formData.email = "";

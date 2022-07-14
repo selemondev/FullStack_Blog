@@ -21,6 +21,11 @@ const blogForm = reactive({
 watchEffect(() => {
     token.value = authStore.user?.data?.token;
 });
+watchEffect(() => {
+    if(!token.value) {
+        router.push("/")
+    }
+})
 
 const config = {
     headers: {
@@ -43,11 +48,6 @@ watchEffect( async () => {
     blogForm.email = blogData.value.email;
 });
 
-watchEffect(() => {
-    if(!token.value) {
-        router.push("/")
-    }
-})
 const handleSubmit = async () => {
     const result = await v$.value.$validate();
     if( result ) {
@@ -63,8 +63,9 @@ const handleSubmit = async () => {
 const handleDeleteUser = async () => {
         deleteLoad.value = true;
         await axios.delete(`${userUrl}/deleteUser/${route.params.id}`, config);
-        deleteLoad.value = false;
         localStorage.removeItem("token")
+        deleteLoad.value = false;
+        authStore.logOut();
 };
 </script>
 <template>
