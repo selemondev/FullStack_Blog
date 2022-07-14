@@ -74,7 +74,7 @@
         top: -0.2%;
         left: 0;
         position: fixed;
-        z-index: 100;
+        z-index: 10;
         background: #10101A;
         display: inline-block;
         list-style: none;

@@ -5,10 +5,10 @@ import { required, minLength, helpers } from "@vuelidate/validators";
 import axios from 'axios';
 import { useAuthStore } from '../stores/authStore';
 import { useRoute, useRouter } from 'vue-router';
+import { blogUrl } from "../utils/baseUrl";
 const router = useRouter()
 const route = useRoute();
 const authStore = useAuthStore();
-const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";
 const token = ref("");
 const blogData = ref([]);
 const blogForm = reactive({

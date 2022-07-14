@@ -16,6 +16,7 @@ const token = ref("");
 const loading = ref(false);
 watchEffect(() => {
     token.value = authStore.user;
+    loading.value = authStore.loading
     if(token.value) {
         router.push("/home")
     }

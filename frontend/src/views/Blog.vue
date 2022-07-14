@@ -4,7 +4,7 @@ import axios from "axios";
 import { ArrowLeftIcon } from "@heroicons/vue/outline";
 import { useAuthStore } from "../stores/authStore";
 import { ref, watchEffect } from "vue";
-const blogUrl = 'https://venom-blog-app.herokuapp.com/api/blog'
+import { blogUrl } from "../utils/baseUrl";
 const authStore = useAuthStore();
 const route = useRoute();
 const token = ref("");
@@ -28,7 +28,7 @@ watchEffect( async () => {
             <router-link to="/home"> <ArrowLeftIcon class="w-6 h-6 text-white hover:text-purple-600 transition duration-200 ease-in"/></router-link>
         </div>
         <div class="flex justify-center items-center flex-wrap xl:justify-start ">
-            <div class=" max-h-sm w-72 rounded-md border border-gray-800 md:w-full">
+            <div class=" max-h-sm w-72 rounded-md border border-gray-900 md:w-full">
             <div class="grid-center">
                 <img :src="blog.image" alt="image" class="w-48 h-48">
             </div>

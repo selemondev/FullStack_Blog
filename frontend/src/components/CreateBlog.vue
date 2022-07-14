@@ -8,9 +8,9 @@ import { ref as storageRef, uploadBytes, getDownloadURL} from "firebase/storage"
 import axios from 'axios';
 import { useAuthStore } from '../stores/authStore';
 import { useRouter } from 'vue-router';
+import { blogUrl } from "../utils/baseUrl";
 const authStore = useAuthStore();
 const router = useRouter();
-const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";
 const token = ref("");
 const loading = ref(false);
 watchEffect(() => {
@@ -81,7 +81,7 @@ const removeSelectedImage = () => {
 </script>
 <template>
 <main class="grid-center pt-14">
-          <div class="max-w-sm w-72 mt-4 mb-4 md:w-96 md:mt-6 md:mb-6">
+          <div class="max-w-sm w-72 mt-14 mb-4 md:w-96 md:mt-6 md:mb-6">
         <form class="w-full px-6 py-4 bg-black border border-gray-800 rounded-sm shadow-sm" @submit.prevent="handleSubmit">
             <div class="grid-center pb-4">
                 <h3 class="font-bold text-white text-xl md:text-2xl">Create Blog</h3>
