@@ -6,8 +6,8 @@ import { ref, watchEffect } from "vue";
 import dayjs from "dayjs";
 import Note from "../assets/Note.svg";
 import Loader from "./Loader.vue";
+import { blogUrl } from "../utils/baseUrl";
 const authStore = useAuthStore();
-const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";
 const token = ref("");
 const blogs = ref([])
 const loading = ref(false);
@@ -47,27 +47,27 @@ function truncate(value,n) {
                 <button class="py-2 px-6 border border-purple-500 rounded-md text-white hover:text-bold hover:bg-purple-600 transition duration-200 ease-in md:px-10"><router-link to="/create">Create Blog</router-link></button>
         </div>
         </div>
-        <div class="flex justify-center items-center flex-wrap xl:justify-start ">
-            <div v-for="blog in blogs" :key="blog._id" class="w-72 h-[555px] rounded-md border border-gray-800 my-2 md:mx-4 xl:mx-10 xl:w-96 xl:h-[500px]">
-            <div class="grid-center">
+        <div class="flex justify-center items-center flex-wrap">
+            <div v-for="blog in blogs" :key="blog._id" class="flex items-center py-2 rounded-md border border-gray-900 my-2 md:space-x-2 md:mx-4 ">
+            <div class="grid-center w-52 h-52">
                  <router-link :to="{name:'blog', params:{id: blog._id}}">
-                <img :src="blog.image" alt="image" class="w-48 h-48">
+                <img :src="blog.image" alt="image" class="w-32 h-24 md:w-48 md:h-48">
                 </router-link>
             </div>
-            <div class="px-2 space-y-2 md:px-4">
+            <div class="px-2 space-y-1 md:space-y-2 md:px-4">
                   
                 <div>
                     <h3 class="text-gray-400">By: {{blog.username}}</h3>
                 </div>
                 <div>
                     <router-link :to="{name:'blog', params:{id: blog._id}}">
-                    <h2 class="text-white text-lg xl:text-2xl">{{truncate(blog.title, 40)}}</h2>
+                    <h2 class="text-white text-base xl:text-2xl">{{truncate(blog.title, 40)}}</h2>
                     </router-link>
                 </div>
 
                 <div>
                     <router-link :to="{name:'blog', params:{id: blog._id}}">
-                    <p class="text-gray-400">{{ truncate(blog.description, 250)}}</p>
+                    <p class="text-gray-400 text-sm md:text-base">{{ truncate(blog.description, 130)}}</p>
                     <p class="text-purple-500 py-2 cursor-pointer">Read More..</p>
                     </router-link>
                 </div>

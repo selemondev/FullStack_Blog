@@ -6,8 +6,8 @@ import { ref, watchEffect } from "vue";
 import dayjs from "dayjs";
 import Note from "../assets/Note.svg";
 import Loader from "./Loader.vue";
+import { blogUrl } from "../utils/baseUrl";
 const authStore = useAuthStore();
-const blogUrl = "https://venom-blog-app.herokuapp.com/api/blog";
 const token = ref("");
 const myBlogsData = ref([])
 const loading = ref(false);

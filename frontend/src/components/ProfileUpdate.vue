@@ -5,20 +5,19 @@ import { required, helpers, email } from "@vuelidate/validators";
 import axios from 'axios';
 import { useAuthStore } from '../stores/authStore';
 import { useRoute, useRouter } from 'vue-router';
+import { userUrl, authUrl } from "../utils/baseUrl";
 const route = useRoute();
 const router = useRouter();
 const authStore = useAuthStore();
-const userUrl = "https://venom-blog-app.herokuapp.com/api/user";
-const authUrl = "https://venom-blog-app.herokuapp.com/api/auth";
 const token = ref("");
 const blogData = ref([]);
+const loading = ref(false);
+const deleteLoad = ref(false);
 const blogForm = reactive({
     title: "",
     username: "",
     description: "",
 })
-const loading = ref(false);
-const deleteLoad = ref(false)
 watchEffect(() => {
     token.value = authStore.user?.data?.token;
 });
@@ -43,6 +42,12 @@ watchEffect( async () => {
     blogForm.username = blogData.value.username;
     blogForm.email = blogData.value.email;
 });
+
+watchEffect(() => {
+    if(!token.value) {
+        router.push("/")
+    }
+})
 const handleSubmit = async () => {
     const result = await v$.value.$validate();
     if( result ) {
@@ -57,11 +62,9 @@ const handleSubmit = async () => {
 
 const handleDeleteUser = async () => {
         deleteLoad.value = true;
-        const response = await axios.delete(`${userUrl}/deleteUser/${route.params.id}`, config);
-        console.log(response.data);
+        await axios.delete(`${userUrl}/deleteUser/${route.params.id}`, config);
         deleteLoad.value = false;
         localStorage.removeItem("token")
-        router.push("/")
 };
 </script>
 <template>
