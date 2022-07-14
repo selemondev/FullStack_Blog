@@ -7,14 +7,14 @@ const registerUser = asyncHandler( async( req, res ) => {
 
     if( !email || !username || !password) {
         res.status(400)
-        throw new Error(" Please add all the required fields")
+        throw new Error("Please add all the required fields")
     };
 
     const userExists = await User.findOne({ email });
 
     if( userExists) {
         res.status(400);
-        throw new Error(" User already exists")
+        throw new Error("User already exists");
     };
 
     const salt = await bcrypt.genSalt(10);
@@ -61,8 +61,6 @@ const loginUser = asyncHandler( async ( req, res ) => {
 });
 const getCredentials = asyncHandler( async ( req, res ) => {
     res.status(200).json(req.user)
-    // const user = await User.find();
-    // res.status(200).json(user)
 })
 function generateToken(id) {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
